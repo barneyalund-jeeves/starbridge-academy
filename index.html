@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starbridge Academy</title>
+    <meta name="description" content="A 5th-grade learning adventure for Matthew with math, science, vocabulary, history, geography, and Mandarin.">
+    <meta name="theme-color" content="#07111f">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2307111f'/%3E%3Ccircle cx='32' cy='32' r='24' fill='%236ff5c5'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='32' font-family='Arial' fill='%2307111f'%3E%E6%98%9F%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game" aria-label="Starbridge Academy game canvas"></canvas>
+
+      <header class="topbar" aria-label="Game status">
+        <div class="brand">
+          <span class="crest" aria-hidden="true">星</span>
+          <div>
+            <strong>Starbridge Academy</strong>
+            <span>Matthew's 5th grade quest</span>
+          </div>
+        </div>
+        <div class="hud" aria-live="polite">
+          <span id="hudRank">Cadet</span>
+          <span id="hudScore">0 XP</span>
+          <span id="hudCombo">0 combo</span>
+          <span id="hudJade">0 jade</span>
+        </div>
+        <div class="top-actions">
+          <button id="mapBtn" class="icon-btn" type="button" title="Map" aria-label="Map">⌖</button>
+          <button id="pauseBtn" class="icon-btn" type="button" title="Pause" aria-label="Pause">Ⅱ</button>
+          <button id="soundBtn" class="icon-btn" type="button" title="Music and sound" aria-label="Music and sound on">♪</button>
+        </div>
+      </header>
+
+      <main id="overlay" class="overlay" aria-live="polite"></main>
+
+      <nav class="touchpad" aria-label="Touch controls">
+        <button id="touchLeft" type="button" aria-label="Move left">◀</button>
+        <button id="touchUp" type="button" aria-label="Move up">▲</button>
+        <button id="touchScan" class="scan" type="button" aria-label="Scan">✦</button>
+        <button id="touchDown" type="button" aria-label="Move down">▼</button>
+        <button id="touchRight" type="button" aria-label="Move right">▶</button>
+      </nav>
+    </div>
+
+    <template id="menuTemplate">
+      <section class="panel menu-panel">
+        <div class="hero-lockup">
+          <span class="hero-crest">星</span>
+          <p class="eyebrow">Stellar learning adventure</p>
+          <h1>Starbridge Academy</h1>
+          <p class="tagline">Pilot the Sky Skiff, unlock puzzle gates, and collect jade stars by mastering 5th-grade missions.</p>
+        </div>
+        <div class="setup-grid">
+          <label>
+            Cadet
+            <input id="playerName" type="text" value="Matthew" maxlength="18" autocomplete="off">
+          </label>
+          <label>
+            Mission Mix
+            <select id="subjectSelect">
+              <option value="all" selected>Balanced 5th Grade</option>
+              <option value="math">Math Core</option>
+              <option value="science">Science Lab</option>
+              <option value="language">Vocabulary + Mandarin</option>
+              <option value="social">History + Geography</option>
+            </select>
+          </label>
+          <label>
+            Challenge
+            <select id="difficultySelect">
+              <option value="rookie">Rookie</option>
+              <option value="cadet" selected>Cadet</option>
+              <option value="captain">Captain</option>
+            </select>
+          </label>
+          <label>
+            Session
+            <select id="sessionSelect">
+              <option value="short">Quick run</option>
+              <option value="standard" selected>Standard quest</option>
+              <option value="boss">Boss rush</option>
+            </select>
+          </label>
+        </div>
+        <div class="button-row">
+          <button id="startBtn" class="primary" type="button">Launch</button>
+          <button id="continueBtn" type="button">Continue</button>
+          <button id="codexBtn" type="button">Codex</button>
+          <button id="dashboardBtn" type="button">Parent View</button>
+        </div>
+        <div class="settings-row">
+          <label><input id="musicToggle" type="checkbox" checked> Music</label>
+          <label><input id="sfxToggle" type="checkbox" checked> Effects</label>
+          <label><input id="motionToggle" type="checkbox"> Calm motion</label>
+          <label>Music <input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.34"></label>
+        </div>
+      </section>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
